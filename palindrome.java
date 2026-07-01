@@ -1,17 +1,26 @@
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
+    public boolean isPalindrome(int x) {
 
-        for (int i = 0; i < nums.length; i++) {
+        int original = x;
+        int reverse = 0;
 
-            for (int j = i + 1; j < nums.length; j++) {
-
-                if (nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
-                }
-
-            }
+        if (x < 0) {
+            return false;
         }
 
-        return new int[]{};
+        while (x > 0) {
+
+            int digit = x % 10;
+
+            reverse = reverse * 10 + digit;
+
+            x = x / 10;
+        }
+
+        if (original == reverse) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
